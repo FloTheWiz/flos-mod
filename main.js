@@ -28,6 +28,9 @@
             init:function(){
                 
                 flo.cdn = "https://flowiz.moe/mashwet/CC/" // my cdn for cc stuff
+
+                flo.cdn2 = "//cdn.flowiz.moe/mashwet/";
+                flo.icons = flo.cdn2 + "icons.png";
                 flo.version = "0.1.5";
                 flo.mode = 0;
     
@@ -103,14 +106,14 @@
             createCheevos: function() { 
                 flo.cheevos = [];
                 // NOormal Cheevos
-                flo.cheevos.push(new Game.Achievement('Flollower',"Ran Flo\'s Mod <q>Glad to have you</q>",[0,1,flo.cdn+"spritesheet2.png"]).order=61700);
-                flo.cheevos.push(new Game.Achievement('Clicker\'? I hardely know \'er','Baked 1 Quadrillion cookies <q>awa awa</q>',[1,0,flo.cdn+"spritesheet2.png"]).order=61701);
+                flo.cheevos.push(new Game.Achievement('Flollower',"Ran Flo\'s Mod <q>Glad to have you</q>",[0,0,flo.icons]).order=61700);
+                flo.cheevos.push(new Game.Achievement('Clicker\'? I hardely know \'er','Baked 1 Quadrillion cookies <q>awa awa</q>',[1,1,flo.icons]).order=61650);
                 // 'Here you go' extension
                 flo.hereyougos = Game.HasAchiev('Here you go') // 0 or 1 
     
-                flo.cheevos.push(new Game.Achievement('Another one','Click it again. <q>Okay, now you\'re asking a bit much.</q>',[1,1,flo.cdn+"spritesheet2.png"]).order=11001);
-                flo.cheevos.push(new Game.Achievement('Begger','Clicked it for a third time. <q>Okay you can stop now</q>',[1,1,flo.cdn+"spritesheet2.png"]).order=11002);
-                flo.cheevos.push(new Game.Achievement('Desperate','Clicked it 5 times. <q>PLEASE STOP</q>',[1,1,flo.cdn+"spritesheet2.png"]).order=11003);
+                flo.cheevos.push(new Game.Achievement('Another one','Click it again. <q>Okay, now you\'re asking a bit much.</q>',[1, 0, flo.icons]).order=11000.209);
+                flo.cheevos.push(new Game.Achievement('Begger','Clicked it for a third time. <q>Okay you can stop now</q>',[2,0, flo.icons]).order=11000.211);
+                flo.cheevos.push(new Game.Achievement('Desperate','Clicked it 5 times. <q>PLEASE STOP</q>',[3,0, flo.icons]).order=11000.213);
     
     
                 // Menu Shit
@@ -128,22 +131,22 @@
                 //eval("Game.Achievements['Here you go'].clickFunction = function(){if (!Game.HasAchiev('Here you go')){PlaySound('snd/tick.mp3');Game.Win('Here you go');}flo.hereyougos+=1;}")
                 // (dragonStr!=''?'<div class="listing"><b>'+loc("Dragon training:")+'</b></div><div>'+dragonStr+'</div>':'')+
                 // Click the version
-                flo.cheevos.push(new Game.Achievement('Update pls','Click the version number.<q>Dungeons will be here one day...</q>',[1,1,flo.cdn+"spritesheet2.png"]).order=10994);
+                flo.cheevos.push(new Game.Achievement('Update pls','Click the version number.<q>Dungeons will be here one day...</q>',[1,1,flo.cdn+"spritesheet2.png"]).order=11001);
                 l('versionNumber').addEventListener('click',function(){
                     if (!Game.HasAchiev('Update pls')){
                         PlaySound('snd/tick.mp3');
                         Game.Win('Update pls');
                 }});
                 // Milks
-                flo.cheevos.push(new Game.Achievement('The best milk','Dunk the cookie in CHOCOLATE MILK',[1,1,flo.cdn+"spritesheet2.png"]).order=11050);
-                flo.cheevos.push(new Game.Achievement('Not how it works','Dunk the cookie in MIDAS MILK',[1,1,flo.cdn+"spritesheet2.png"]).order=11075);
+                flo.cheevos.push(new Game.Achievement('The best milk','Dunk the cookie in <b>Chocolate Milk</b>',[5,0, flo.icons]).order=11010);
+                flo.cheevos.push(new Game.Achievement('Not how it works','Dunk the cookie in <b>Midas Milk</b> <q>Not getting a Golden Cookie that way...<\q>',[6,0, flo.icons]).order=11010);
                 // Scry about it 
                 flo.fails = 0;
-                flo.cheevos.push(new Game.Achievement('Scry about it', 'Fail Resurrect Abomination 100 times',[1,1,flo.cdn+"spritesheet2.png"]).order=61499);
+                flo.cheevos.push(new Game.Achievement('Scry about it', 'Fail Resurrect Abomination <b>100</b> times',[5,1,flo.icons]).order=61550);
                 
                 // Cheevo cheevos
-                flo.cheevos.push(new Game.Achievement('You Ready?','Achieve <b>10</b> milestones.',[1,1,flo.cdn+"spritesheet2.png"]).order=9050);
-                flo.cheevos.push(new Game.Achievement('Lets go','Achieve <b>10</b> milestones.',[1,1,flo.cdn+"spritesheet2.png"]).order=9051);
+                flo.cheevos.push(new Game.Achievement('You Ready?','Achieve <b>10</b> milestones.',[0,2,flo.icons]).order=9050);
+                flo.cheevos.push(new Game.Achievement('Lets go','Achieve <b>10</b> milestones.',[1,2,flo.icons]).order=9051);
                 flo.cheevos.push(new Game.Achievement('Its like this yall','Achieve <b>50</b> milestones',[1,1,flo.cdn+"spritesheet2.png"]).order=9052);
                 flo.cheevos.push(new Game.Achievement('This is 10% Luck','Achieve <b>100</b> milestones',[1,1,flo.cdn+"spritesheet2.png"]).order=9053);
                 flo.cheevos.push(new Game.Achievement('20% Skill','Achieve <b>200</b> milestones',[1,1,flo.cdn+"spritesheet2.png"]).order=9054);
@@ -157,7 +160,7 @@
                 // Achievements for level 20 Buildings
                 // Achievement for selling 10 of each building
                 
-                flo.cheevos.push(new Game.Achievement('Changing of the seasons','5 Seasons changes', [1,1,flo.cdn+"spritesheet2.png"]).order=21105);
+                flo.cheevos.push(new Game.Achievement('Changing of the seasons','5 Seasons changes', [2,1, flo.icons]).order=21105);
                 
                 
                 // Minigame Cheevos
@@ -172,11 +175,11 @@
                 // Brewing
                 
                 // Shadows
-                flo.cheevos.push(new Game.Achievement('Dedicated','Clicked it 50 times. <q>No more.</q>',[2,0,flo.cdn+"spritesheet2.png"]).order=120002);
+                flo.cheevos.push(new Game.Achievement('Dedicated','Clicked it 50 times. <q>No more.</q>',[4,0, flo.icons]).order=120002);
                 Game.last.pool ='shadow';Game.last.clickFunction=function(){if(flo.hereyougo%3==0){Game.Notify('No more is to be gained from this.');}}
-                flo.cheevos.push(new Game.Achievement('Brainrotted','Clicked the Ticker 10,000 times',[2,0,flo.cdn+"spritesheet2.png"]).order=120001);
+                flo.cheevos.push(new Game.Achievement('Brainrotted','Clicked the Ticker 10,000 times',[4, 1, flo.icons]).order=120001);
                 Game.last.pool ='shadow';
-                flo.cheevos.push(new Game.Achievement('Milk connoisseur','Dunk the cookie in EVERY MILK',[1,1,flo.cdn+"spritesheet2.png"]).order=120002);
+                flo.cheevos.push(new Game.Achievement('Milk connoisseur','Dunk the cookie in EVERY MILK',[7,0, flo.icons]).order=120002);
                 Game.last.pool = 'shadow';
                 flo.cheevos.push(new Game.Achievement('Business Elder','Name yourself after a Grandma. <q>I\'ve got it from here</q>',[1,1,flo.cdn+"spritesheet2.png"]).order=120003);
                 Game.last.pool = 'shadow';
@@ -617,42 +620,144 @@
                         //M.possible_ingredients = Game.Objects['Farm'].minigame.plants; 
                         //M.ingredients = []
                         M.potions = [];
+                         // Crazy evil database
                         M.ingredients = { // Named by the plant.name, because otherwise it involves above.
-                            'Baker\'s wheat':{effsStr:'+1% CPS for 60s',},  // DONE
-                            'Thumbcorn':{effsStr:'+1% Click Power for 60s'}, // DONE
-                            'Cronerice':{effsStr:'Gain a temporary 10 Grandmas for 60s'}, // DONE
-                            'Gildmillet':{effsStr:'Golden cookie effect duration +1% for 60s'}, 
-                            'Ordinary clover':{effsStr:'Golden cookie frequency +1% for 60s'},
-                            'Golden clover':{effsStr:'Golden cookie frequency +3% for 60s'},
-                            'Shimmerlily':{effsStr:'GC chance'}, 
-                            'Elderwort':{effsStr:'Wrath Duration'},
-                            'Bakeberry':{effsStr:'CpS (max. %2% of bank) instantly'},
-                            'Chocoroot':{effsStr:'CpS (max. %2% of bank)'},
-                            'White chocoroot':{effsStr:'CpS (max. %2% of bank)'},
-                            'White mildew':{effsStr:''}, // Need Mold Uses // --> GC FREQ 0.1%
-                            'Brown mold':{effsStr:''}, // WC FREQ 0.1%
-                            'Meddleweed':{effsStr:''}, // 
-                            'Whiskerbloom':{effsStr:''},
-                            'Chimerose':{effsStr:''},
-                            'Nursetulip':{effsStr:''},
-                            'Drowsyfern':{effsStr:''},
-                            'Wardlichen':{effsStr:''},
-                            'Keenmoss':{effsStr:''},
-                            'Queenbeet':{effsStr:''},
-                            'Juicy queenbeet':{effsStr:''},
-                            'Duketater':{effsStr:''},
-                            'Crumbspore':{effsStr:''},
-                            'Doughshroom':{effsStr:''},
-                            'Glovemorel':{effsStr:''},
-                            'Cheapcap':{effsStr:''},
-                            'Fool\'s bolete':{effsStr:''},
-                            'Wrinklegill':{effsStr:''},
-                            'Green rot':{effsStr:''},
-                            'Shriekbulb':{effsStr:''},
-                            'Tidygrass':{effsStr:''},
-                            'Everdaisy':{effsStr:''},
-                            'Ichorpuff':{effsStr:''}
-                            
+                            'Baker\'s wheat': {
+                                effsStr: '+1% CPS for 60s',
+                                weight: 0.1
+                            },
+                            'Thumbcorn': {
+                                effsStr: '+1% Click Power for 60s',
+                                weight: 0.05
+                            },
+                            'Cronerice': {
+                                effsStr: 'Gain a temporary 10 Grandmas for 60s',
+                                weight: 0.02
+                            },
+                            'Gildmillet': {
+                                effsStr: 'Golden cookie effect duration +1% for 60s',
+                                weight: 0.01
+                            },
+                            'Ordinary clover': {
+                                effsStr: 'Golden cookie frequency +1% for 60s',
+                                weight: 0.01
+                            },
+                            'Golden clover': {
+                                effsStr: 'Golden cookie frequency +3% for 60s',
+                                weight: 0.003
+                            },
+                            'Shimmerlily': {
+                                effsStr: 'GC chance',
+                                weight: 0.02
+                            },
+                            'Elderwort': {
+                                effsStr: 'Wrath Duration',
+                                weight: 0.01
+                            },
+                            'Bakeberry': {
+                                effsStr: 'CpS (max. %2% of bank) instantly',
+                                weight: 0.01
+                            },
+                            'Chocoroot': {
+                                effsStr: 'CpS (max. %2% of bank)',
+                                weight: 0.03
+                            },
+                            'White chocoroot': {
+                                effsStr: 'CpS (max. %2% of bank)',
+                                weight: 0.03
+                            },
+                            'White mildew': {
+                                effsStr: '',
+                                weight: 0.1
+                            },
+                            'Brown mold': {
+                                effsStr: '',
+                                weight: 0.1
+                            },
+                            'Meddleweed': {
+                                effsStr: '',
+                                weight: 0.15
+                            },
+                            'Whiskerbloom': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Chimerose': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Nursetulip': {
+                                effsStr: '',
+                                weight: 0.01
+                            },
+                            'Drowsyfern': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Wardlichen': {
+                                effsStr: '',
+                                weight: 0.01
+                            },
+                            'Keenmoss': {
+                                effsStr: '',
+                                weight: 0.03
+                            },
+                            'Queenbeet': {
+                                effsStr: '',
+                                weight: 0.005
+                            },
+                            'Juicy queenbeet': {
+                                effsStr: '',
+                                weight: 0.001
+                            },
+                            'Duketater': {
+                                effsStr: '',
+                                weight: 0.01
+                            },
+                            'Crumbspore': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Doughshroom': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Glovemorel': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Cheapcap': {
+                                effsStr: '',
+                                weight: 0.04
+                            },
+                            'Fool\'s bolete': {
+                                effsStr: '',
+                                weight: 0.04
+                            },
+                            'Wrinklegill': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Green rot': {
+                                effsStr: '',
+                                weight: 0.02
+                            },
+                            'Shriekbulb': {
+                                effsStr: '',
+                                weight: 0.01
+                            },
+                            'Tidygrass': {
+                                effsStr: '',
+                                weight: 0.01
+                            },
+                            'Everdaisy': {
+                                effsStr: '',
+                                weight: 0.01
+                            },
+                            'Ichorpuff': {
+                                effsStr: '',
+                                weight: 0.01
+                            }
                         };
                         M.available = [];
                         // Selecting a plant for the potion
@@ -682,7 +787,7 @@
                         str = ''
                         return str
                     },
-                
+                     
                     M.load=function(str)
                     {
                         //interpret str; called after .init
@@ -697,6 +802,16 @@
                         console.log("Adding plant: " + plant.name);
                         M.available.push(plant);
                         M.buildPanel()
+                    },
+                    // Generate a random piece
+                    M.generatePlant=function() {
+                                                // 1. Select piece type based on weights
+                        const plantEntries = Object.entries(M.ingredients)
+                            .map(([key, data]) => [key, data.weight]);
+                        
+                        const plantKey = weightedRandom(plantEntries);
+                        const plant = M.ingredients[plantKey];
+                        return {plantKey, plant};
                     },
                     M.newPotion = function(effs) {
                             
